@@ -1,0 +1,615 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/flcl-1.jpeg">
+  <link rel="icon" href="/img/flcl-1.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="qiaotianyang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="函数函数在我们编程的过程中有着至关重要的作用，我们无时无刻不在使用函数！ 上一节中我们了解了函数的基本概念，但对于函数还有更多的知识需要了解。 arguments参数 用于读取函数的参数，是一个类数组  先来试着输出下面的代码： 123456function a(a, b, c) &amp;#123;    c &#x3D; 10;    console.log(arguments);    return a +">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS（二）——函数、闭包与this">
+<meta property="og:url" content="https://11qiaolj.github.io/2022/10/23/JS%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0%E3%80%81%E9%97%AD%E5%8C%85%E4%B8%8Ethis/index.html">
+<meta property="og:site_name" content="乔辣鸡的前端之路">
+<meta property="og:description" content="函数函数在我们编程的过程中有着至关重要的作用，我们无时无刻不在使用函数！ 上一节中我们了解了函数的基本概念，但对于函数还有更多的知识需要了解。 arguments参数 用于读取函数的参数，是一个类数组  先来试着输出下面的代码： 123456function a(a, b, c) &amp;#123;    c &#x3D; 10;    console.log(arguments);    return a +">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023231656.png">
+<meta property="og:image" content="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023231800.png">
+<meta property="og:image" content="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023231951.png">
+<meta property="og:image" content="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023232226.png">
+<meta property="og:image" content="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023232250.png">
+<meta property="og:image" content="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023232411.png">
+<meta property="article:published_time" content="2022-10-23T15:15:54.000Z">
+<meta property="article:modified_time" content="2022-10-23T15:26:48.210Z">
+<meta property="article:author" content="qiaotianyang">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023231656.png">
+  
+  
+  
+  <title>JS（二）——函数、闭包与this - 乔辣鸡的前端之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"11qiaolj.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Effortless</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/%E6%9F%B4%E7%8A%AC.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JS（二）——函数、闭包与this"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        qiaotianyang
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-23 23:15" pubdate>
+          2022年10月23日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.2k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JS（二）——函数、闭包与this</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：16 分钟前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数在我们编程的过程中有着至关重要的作用，我们无时无刻不在使用函数！</p>
+<p>上一节中我们了解了函数的基本概念，但对于函数还有更多的知识需要了解。</p>
+<h2 id="arguments参数"><a href="#arguments参数" class="headerlink" title="arguments参数"></a>arguments参数</h2><blockquote>
+<p>用于读取函数的参数，是一个类数组</p>
+</blockquote>
+<p>先来试着输出下面的代码：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">function</span> <span class="hljs-title function_">a</span>(<span class="hljs-params">a, b, c</span>) &#123;<br>    c = <span class="hljs-number">10</span>;<br>    <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(arguments);<br>    <span class="hljs-keyword">return</span> a + b + c;<br>&#125;<br>a(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<p><img src="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023231656.png" srcset="/img/loading.gif" lazyload alt="[图片]"></p>
+<p>请注意！这里<code>arguments[2]</code>的值是 10 而不是传入的参数 1</p>
+<p>我们把它改造一下，给最后一个参数默认值会怎么样？</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">function</span> <span class="hljs-title function_">a</span>(<span class="hljs-params">a, b, c = <span class="hljs-number">3</span></span>) &#123;<br>    c = <span class="hljs-number">10</span>;<br>    <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(arguments);<br>    <span class="hljs-keyword">return</span> a + b + c;<br>&#125;<br>a(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<p><img src="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023231800.png" srcset="/img/loading.gif" lazyload alt="[图片]"></p>
+<p>这里，具有默认值的 c，在 arguments 中表现为 1</p>
+<blockquote>
+<p>参考：MDN：Arguments 对象</p>
+</blockquote>
+<h2 id="function-length"><a href="#function-length" class="headerlink" title="function.length"></a>function.length</h2><p>对于上面的函数 a，a 的 length 是什么意思？函数的长度？</p>
+<p>我们来试验一下</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(a.<span class="hljs-built_in">length</span>);<br>对于第一个没有默认值的函数a，会输出：<span class="hljs-number">3</span><br>对于第二个有默认值的函数a，会输出：<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+<p>由此可知，a.length 的意思是函数的<strong>没有默认值</strong>的参数的个数。</p>
+<h1 id="作用域及作用域链"><a href="#作用域及作用域链" class="headerlink" title="作用域及作用域链"></a>作用域及作用域链</h1><h2 id="作用域："><a href="#作用域：" class="headerlink" title="作用域："></a>作用域：</h2><p>在讲解闭包之前，我们需要重申一遍作用域的概念：</p>
+<ol>
+<li>全局作用域：作用于全局，在全局的任何地方都能够访问到。</li>
+<li>函数作用域：在一个函数体内定义的变量只可以在函数作用域中访问到。</li>
+<li>块级作用域： 在 es6 中提出，随着新的变量声明命令 let 和 const 的出现而出现。一对{}就是一个块级作用域，由 let 和 const 定义的变量，只能在块级作用域内被访问，作用域外访问不到。</li>
+</ol>
+<h2 id="作用域链："><a href="#作用域链：" class="headerlink" title="作用域链："></a>作用域链：</h2><p>对于函数来说，当代码进入到函数当中会将函数上下文推入一个上下文栈。在函数执行完成后会将函数上下文从上下文栈弹出。将控制权返回给执行上下文。</p>
+<p>那么在这时，上下文在执行函数时会生成一个作用域链。这个作用域链决定了各级上下文中的代码在访问变量和函数时的顺序。</p>
+<p>例如下面这段代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> color1=<span class="hljs-string">&#x27;blue&#x27;</span><br><br><span class="hljs-function">function <span class="hljs-title">changeColor</span>()</span>&#123;<br>    <span class="hljs-keyword">let</span> color2=<span class="hljs-string">&#x27;red&#x27;</span>;<br>    <span class="hljs-function">function <span class="hljs-title">swapColor</span>()</span>&#123;<br>        <span class="hljs-keyword">let</span> color3=color2<br>        color2=color1<br>        color1=color3 <span class="hljs-comment">//这里可以使用</span><br>    &#125;<br>    swapColor();<br>&#125;<br>changeColor()<br><br>color1=color3<span class="hljs-comment">//报错！！！</span><br></code></pre></td></tr></table></figure>
+<p>在这段代码中就生成了一个作用域链：<br><img src="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023231951.png" srcset="/img/loading.gif" lazyload alt="[图片]"><br>在这种情况下，内部上下文可以通过作用域链访问外部上下文中的一切，但外部上下文无法王文内部上下文中的任何东西。</p>
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>在上文中我们发现，我们在外层是无法直接访问函数内部的变量的。</p>
+<p>那么有什么办法可以改变这一情况吗？</p>
+<p>答案是：我们可以使用闭包！</p>
+<blockquote>
+<p>官方解释：闭包（closure）是一个函数以及其捆绑的周边环境状态（lexical environment，词法环境）的引用的组合。</p>
+</blockquote>
+<p>个人认为“<strong>红宝书</strong>”：中的解释更加清楚：闭包指的是那些引用了另一个函数作用域中变量的函数，通常是在嵌套函数中实现的。</p>
+<p>一种常见的情况就是将函数作为返回值返回。</p>
+<p>在函数外部调用这个返回值，可以得到函数作用域内的变量！</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">makeFunc</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">var</span> name = <span class="hljs-string">&quot;Mozilla&quot;</span>;<br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">displayName</span><span class="hljs-params">()</span> &#123;<br>        alert(name);<br>    &#125;<br>    <span class="hljs-keyword">return</span> displayName;<br>&#125;<br><span class="hljs-keyword">var</span> myFunc = makeFunc();<br>myFunc();    <span class="hljs-comment">//&#x27;Mozilla&#x27;</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>当一个变量被使用时，若当前作用域没有该变量，就会向上查找，直到全局。若未找到，则报错。</p>
+</blockquote>
+<p>这样是不是就解决了前面那一节中，外部无法访问函数内部变量的问题。</p>
+<p>闭包还有另一个作用：让这些变量的值始终保持在内存中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> nAdd<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">f1</span>(<span class="hljs-params"></span>)&#123;<br>　　　　<span class="hljs-keyword">let</span> n=<span class="hljs-number">999</span>;<br>　　　　nAdd=<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;n++&#125;<br>　　　　<span class="hljs-keyword">function</span> <span class="hljs-title function_">f2</span>(<span class="hljs-params"></span>)&#123;<span class="hljs-title function_">alert</span>(n)&#125;<br>　　　　<span class="hljs-keyword">return</span> f2;<br>　　&#125;<br>　　<span class="hljs-keyword">var</span> result=<span class="hljs-title function_">f1</span>();<br>　　<span class="hljs-title function_">result</span>(); <span class="hljs-comment">// 999</span><br>　　<span class="hljs-title function_">nAdd</span>();<br>　　<span class="hljs-title function_">result</span>(); <span class="hljs-comment">// 1000</span><br></code></pre></td></tr></table></figure>
+<p>在这里，第一次result的结果是999，第二次则是1000。</p>
+<p>我们成功的通过一个闭包保存并修改了这个result中n的值。</p>
+<h2 id="闭包的缺点："><a href="#闭包的缺点：" class="headerlink" title="闭包的缺点："></a>闭包的缺点：</h2><p>这里我们知道，闭包可以让一个变量保存在内存中，那使用闭包的问题也随之而来了。</p>
+<p>滥用闭包，会使很多原本应该被清理掉的变量被引用（有关浏览器的垃圾清理），这些变量清除不掉就会造成内存泄露。</p>
+<h2 id="一道经典面试题："><a href="#一道经典面试题：" class="headerlink" title="一道经典面试题："></a>一道经典面试题：</h2><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++) &#123;<br>  setTimeout(<span class="hljs-keyword">function</span> <span class="hljs-title function_">timer</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(i)      <span class="hljs-comment">//会输出5个6</span><br>  &#125;, i * <span class="hljs-number">1000</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>我们预期会输出1、2、3、4、5对吧？</p>
+<p>可事实却是输出5个6。</p>
+<p>怎么解决呢？</p>
+<ol>
+<li><p>闭包：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++) &#123;<br>  ;(<span class="hljs-keyword">function</span>(<span class="hljs-params">j</span>) &#123;<br>    setTimeout(<br>        <span class="hljs-keyword">function</span> <span class="hljs-title function_">timer</span>(<span class="hljs-params"></span>) &#123;<br>          <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(j)<br>        &#125;<br>        , j * <span class="hljs-number">1000</span>)<br>  &#125;)(i)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在上述代码中，我们首先使用了立即执行函数将 i 传入函数内部，这个时候值就被固定在了参数j 上面不会改变，当下次执行 timer这个闭包的时候，就可以使用外部函数的变量 j，从而达到目的。</p>
+</li>
+<li><p>setTimeout 的第三个参数：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++) &#123;<br>  setTimeout(<br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">timer</span>(<span class="hljs-params">j</span>) &#123;<br>      <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(j)<br>    &#125;,<br>    i * <span class="hljs-number">1000</span>,<br>    i<br>  )<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>把 var 换成 let 就可以了</p>
+</li>
+</ol>
+<p>let会生成块级作用域来保存变量。</p>
+<h1 id="Js-中的-this"><a href="#Js-中的-this" class="headerlink" title="Js 中的 this"></a>Js 中的 this</h1><p>参考《你不知道的JavaScript（上卷）》：</p>
+<ol>
+<li>默认绑定：函数直接被调用，this 指向 window <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss">function <span class="hljs-built_in">f</span>()&#123;<br>console<span class="hljs-selector-class">.log</span>(this)<br>&#125;<br><span class="hljs-built_in">f</span>()<br></code></pre></td></tr></table></figure>
+<img src="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023232226.png" srcset="/img/loading.gif" lazyload alt="[图片]"></li>
+<li>隐式绑定：对象的方法被调用，this 指向该对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> a=&#123;<br>    <span class="hljs-attr">f</span>:<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span>)<br>    &#125;,<br>    <span class="hljs-attr">x</span>:<span class="hljs-number">1</span><br>&#125;<br>a.<span class="hljs-title function_">f</span>()<br></code></pre></td></tr></table></figure>
+<img src="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023232250.png" srcset="/img/loading.gif" lazyload alt="[图片]"></li>
+<li>显示绑定：使用call、apply、bind来显示的绑定函数的this</li>
+<li>new绑定：new 的 this 指向实例上 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">a</span>)&#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>=a<br>&#125;<br><span class="hljs-keyword">let</span> b=<span class="hljs-keyword">new</span> <span class="hljs-title function_">foo</span>(<span class="hljs-number">2</span>)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(b.<span class="hljs-property">a</span>)    <span class="hljs-comment">//2</span><br></code></pre></td></tr></table></figure>
+具体的关于new的内部逻辑会在后面的章节中展开介绍。</li>
+<li>箭头函数没有 this（或者说指向他所在的作用域）<br>简单来说，就是一个函数的 this 是在函数被调用时查找而非定义时。</li>
+</ol>
+<h2 id="手写-call-apply-bind"><a href="#手写-call-apply-bind" class="headerlink" title="手写 call,apply,bind"></a>手写 call,apply,bind</h2><p>this的使用经常让人感到困惑</p>
+<p>js 提供了一些方法来帮助我们避免这种困惑。</p>
+<p>使用 call、apply、bind 改变 this 指向，这时this会指向我们想要的目标。</p>
+<p>先来说说这三个函数的区别</p>
+<ul>
+<li>call：第一个参数为要指向的对象target，后面的 args1，arg2…为函数的参数。</li>
+<li>apply：第一个参数也是要指向的对象target，第二个参数为一个数组[…args]，数组中的每一项为函数的参数。</li>
+<li>bind：bind的参数与 call 相同，只不过 bind 返回了一个函数。需要再次执行（而 call 和 apply 都会直接执行）</li>
+</ul>
+<h3 id="手写call："><a href="#手写call：" class="headerlink" title="手写call："></a>手写call：</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">Function.prototype.myCall = <span class="hljs-keyword">function</span> <span class="hljs-params">(obj, <span class="hljs-rest_arg">...ary</span>)</span> &#123;<br>    obj = obj || window        <span class="hljs-comment">//obj为空则指向window</span><br>    obj.fn = <span class="hljs-keyword">this</span>              <span class="hljs-comment">//this指被调用的函数，将函数临时挂载到当前对象的fn属性上</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-keyword">this</span> != <span class="hljs-string">&quot;function&quot;</span>) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Error(<span class="hljs-string">&quot;这不是一个函数！&quot;</span>)   <span class="hljs-comment">//如果不是函数，抛出错误</span><br>    &#125;<br>    <span class="hljs-keyword">const</span> result = obj.fn(...ary)      <span class="hljs-comment">//this指向最后一个调用函数的对象，所以指向obj</span><br>    <span class="hljs-keyword">delete</span> obj.fn           <span class="hljs-comment">//删除函数，防止变量污染</span><br>    <span class="hljs-keyword">return</span> result           <span class="hljs-comment">//返回结果</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="手写apply："><a href="#手写apply：" class="headerlink" title="手写apply："></a>手写apply：</h3><p>apply与call大致相同，只是第二个参数为一个数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myApply</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">obj, ary</span>) &#123;   <span class="hljs-comment">//这里的ary是一个数组</span><br>    obj = obj || <span class="hljs-variable language_">window</span>        <span class="hljs-comment">//obj为空则指向window</span><br>    obj.<span class="hljs-property">fn</span> = <span class="hljs-variable language_">this</span>              <span class="hljs-comment">//this指被调用的函数，将函数临时挂载到当前对象的fn属性上</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">this</span> != <span class="hljs-string">&quot;function&quot;</span>) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;这不是一个函数！&quot;</span>)   <span class="hljs-comment">//如果不是函数，抛出错误</span><br>    &#125;<br>    <span class="hljs-keyword">var</span> result = obj.<span class="hljs-title function_">fn</span>(...ary)      <span class="hljs-comment">//this指向最后一个调用函数的对象，所以指向obj</span><br>    <span class="hljs-keyword">delete</span> obj.<span class="hljs-property">fn</span>           <span class="hljs-comment">//删除函数，防止变量污染</span><br>    <span class="hljs-keyword">return</span> result           <span class="hljs-comment">//返回结果</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="手写bind："><a href="#手写bind：" class="headerlink" title="手写bind："></a>手写bind：</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">Function.prototype.myBind = <span class="hljs-keyword">function</span> <span class="hljs-params">(obj,<span class="hljs-rest_arg">...args</span>)</span> &#123;  <br>    <br>    <span class="hljs-keyword">const</span> myThis = obj||window <span class="hljs-comment">//弹出数组的第一个参数，为指向对象</span><br>    <br>    <span class="hljs-keyword">const</span> self = <span class="hljs-keyword">this</span>           <span class="hljs-comment">//获取当前函数的this</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-params">()</span> &#123;        <span class="hljs-comment">//bind方法返回一个函数</span><br>        <span class="hljs-keyword">return</span> self.apply(myThis, args)      <span class="hljs-comment">//通过apply将这个函数指向myThis并执行</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>看看结果：<br><img src="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/20221023232411.png" srcset="/img/loading.gif" lazyload alt="[图片]"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/" class="category-chain-item">知识梳理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

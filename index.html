@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/flcl-1.jpeg">
+  <link rel="icon" href="/img/flcl-1.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="qiaotianyang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="关于一个前端菜鸟的成长记录">
+<meta property="og:type" content="website">
+<meta property="og:title" content="乔辣鸡的前端之路">
+<meta property="og:url" content="https://11qiaolj.github.io/index.html">
+<meta property="og:site_name" content="乔辣鸡的前端之路">
+<meta property="og:description" content="关于一个前端菜鸟的成长记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="qiaotianyang">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>乔辣鸡的前端之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"11qiaolj.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Effortless</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/%E5%A3%81%E7%BA%B8-%E9%BB%84%E8%89%B2%E7%9A%84%E5%A4%A9%E7%A9%BA.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="I believe my brain keep burning"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/10/23/JS%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/" target="_self">
+          <img src="/img/%E6%9F%B4%E7%8A%AC.jpeg" srcset="/img/loading.gif" lazyload alt="JS（一）——数据类型与变量声明">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/10/23/JS%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/" target="_self">
+          JS（一）——数据类型与变量声明
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/10/23/JS%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/" target="_self">
+        <div>
+          JS我们常说的js，实际上是EcmaScript+浏览器提供DOM和BOM 这里我们首先学习语法，也就是ES，在此之前你可能需要掌握常规的编程知识（如关键字、变量、for循环、if判断。。。等常规语法） ES可以说是前端的重中之重，学会了他，你就能真正的开启前端的大门！ 基本数据类型与引用数据类型基本数据类型有 7 个：  number 数字 string 字符 boolean 布尔 undefi
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-23 19:37" pubdate>
+              2022-10-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/09/30/CSS%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_self">
+          <img src="/img/%E6%9F%B4%E7%8A%AC.jpeg" srcset="/img/loading.gif" lazyload alt="CSS那些事（二）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/09/30/CSS%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_self">
+          CSS那些事（二）
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/09/30/CSS%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_self">
+        <div>
+          CSSCSS在html的基础上为网页“增色”，有了CSS，我们才做出如今灵动多彩的网页。 本文为大家带来CSS的一些技巧，满足实际开发中的大部分场景。 css实现动画过渡动画过渡：transition:属性（all） 花费时间 运动曲线 何时开始。搭配‘hover’使用。谁要发生动画效果就给谁加。 转换：transform:与过渡一起使用，达到动画效果。  translate:移动效果 rotat
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-30 18:28" pubdate>
+              2022-09-30
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/09/23/CSS%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%B8%80%EF%BC%89/" target="_self">
+          <img src="/img/%E6%9F%B4%E7%8A%AC.jpeg" srcset="/img/loading.gif" lazyload alt="CSS那些事（一）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/09/23/CSS%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%B8%80%EF%BC%89/" target="_self">
+          CSS那些事（一）
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/09/23/CSS%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%B8%80%EF%BC%89/" target="_self">
+        <div>
+          CSSCSS在html的基础上为网页“增色”，有了CSS，我们才做出如今灵动多彩的网页。 CSS将作为面试考察的第一关，对CSS足够了解，才能成为一个合格的网友开发者。 css 选择器及其权重为元素写CSS样式，那么首先就要了解CSS选择器。 选择器：  行内样式权重为 1000                   ID选择器(#) —— 权重100 类选择器(.) —— 权重10  标签&#x2
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-23 15:46" pubdate>
+              2022-09-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/09/16/%E8%BF%99%E4%BA%9B%20html%20%E4%BD%A0%E7%9F%A5%E9%81%93%E5%90%97%EF%BC%9F/" target="_self">
+          <img src="/img/%E6%9F%B4%E7%8A%AC.jpeg" srcset="/img/loading.gif" lazyload alt="这些 html 你知道吗？">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/09/16/%E8%BF%99%E4%BA%9B%20html%20%E4%BD%A0%E7%9F%A5%E9%81%93%E5%90%97%EF%BC%9F/" target="_self">
+          这些 html 你知道吗？
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/09/16/%E8%BF%99%E4%BA%9B%20html%20%E4%BD%A0%E7%9F%A5%E9%81%93%E5%90%97%EF%BC%9F/" target="_self">
+        <div>
+          Htmlhtml是各位前端开发者的“第一课”，属于前端开发的基石。 有关html的内容很多，但随着技术的不断进步，在实际工作中需要直接对html标签进行操作的情况很少，因此在面试中的考量通常是以基础的为主。 HTML 语义化什么是 html 语义化？ 这个问题算是 html 在面试中出现频率较高的一个问题。 按我的理解来说，就是给原来的 div 起名字，这是 HTML5 新推出的几种标签。 以前都
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-16 18:24" pubdate>
+              2022-09-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

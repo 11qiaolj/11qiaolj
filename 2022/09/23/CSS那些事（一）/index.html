@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/flcl-1.jpeg">
+  <link rel="icon" href="/img/flcl-1.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="qiaotianyang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="CSSCSS在html的基础上为网页“增色”，有了CSS，我们才做出如今灵动多彩的网页。 CSS将作为面试考察的第一关，对CSS足够了解，才能成为一个合格的网友开发者。 css 选择器及其权重为元素写CSS样式，那么首先就要了解CSS选择器。 选择器：  行内样式权重为 1000                   ID选择器(#) —— 权重100 类选择器(.) —— 权重10  标签&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS那些事（一）">
+<meta property="og:url" content="https://11qiaolj.github.io/2022/09/23/CSS%E9%82%A3%E4%BA%9B%E4%BA%8B%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="乔辣鸡的前端之路">
+<meta property="og:description" content="CSSCSS在html的基础上为网页“增色”，有了CSS，我们才做出如今灵动多彩的网页。 CSS将作为面试考察的第一关，对CSS足够了解，才能成为一个合格的网友开发者。 css 选择器及其权重为元素写CSS样式，那么首先就要了解CSS选择器。 选择器：  行内样式权重为 1000                   ID选择器(#) —— 权重100 类选择器(.) —— 权重10  标签&amp;#x2">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/%E7%9B%92%E6%A8%A1%E5%9E%8B.jpeg">
+<meta property="article:published_time" content="2022-09-23T07:46:29.000Z">
+<meta property="article:modified_time" content="2022-10-23T14:31:09.529Z">
+<meta property="article:author" content="qiaotianyang">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/%E7%9B%92%E6%A8%A1%E5%9E%8B.jpeg">
+  
+  
+  
+  <title>CSS那些事（一） - 乔辣鸡的前端之路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"11qiaolj.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Effortless</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/%E6%9F%B4%E7%8A%AC.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CSS那些事（一）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        qiaotianyang
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-23 15:46" pubdate>
+          2022年9月23日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CSS那些事（一）</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：20 分钟前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p>CSS在html的基础上为网页“增色”，有了CSS，我们才做出如今灵动多彩的网页。</p>
+<p>CSS将作为面试考察的第一关，对CSS足够了解，才能成为一个合格的网友开发者。</p>
+<h2 id="css-选择器及其权重"><a href="#css-选择器及其权重" class="headerlink" title="css 选择器及其权重"></a>css 选择器及其权重</h2><p>为元素写CSS样式，那么首先就要了解CSS选择器。</p>
+<p>选择器：</p>
+<ul>
+<li>行内样式权重为 1000                  </li>
+<li>ID选择器(#) —— 权重100</li>
+<li>类选择器(.) —— 权重10 </li>
+<li>标签&#x2F;伪类&#x2F;属性选择器 —— 权重1</li>
+<li>通配符选择器(*) —— 权重0</li>
+<li>继承没有权重。</li>
+<li>遇到!important 则是最大，大于一切。</li>
+</ul>
+<h2 id="行内元素和块级元素"><a href="#行内元素和块级元素" class="headerlink" title="行内元素和块级元素"></a>行内元素和块级元素</h2><ul>
+<li>block：是块级元素，会独占一行，能设置宽度，高度。</li>
+<li>inline：行内元素，设置 width 和 height 无效，由内容撑开，</li>
+<li>inline-block：能设置宽度高度，且不会独占一行。</li>
+</ul>
+<h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><p>盒子模型由：内容 content，内边距 paddig，边框 border，外边距 margin 组成。<br><img src="https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/%E7%9B%92%E6%A8%A1%E5%9E%8B.jpeg" srcset="/img/loading.gif" lazyload alt="[图片]"></p>
+<p>通常我们设置标准盒子模型（W3C 盒子模型）的宽度时，要考虑他的宽度是：<br><code>width=content（设定宽度）+ padding + border </code></p>
+<p>设定的宽度与实际的宽度不符。这让我们在使用时需要计算。</p>
+<p>css3 提供了一种新方法：<br><code>box-sizing:border-box；</code></p>
+<p>可以让我们盒子的宽度就是我们所设定的 width，不会因内边距和边框而撑开。</p>
+<p>我们也称这种盒模型叫 IE 盒子模型或怪异盒子模型。</p>
+<h2 id="margin-常见问题"><a href="#margin-常见问题" class="headerlink" title="margin 常见问题"></a>margin 常见问题</h2><h3 id="1-外边距合并和传递"><a href="#1-外边距合并和传递" class="headerlink" title="1. 外边距合并和传递"></a>1. 外边距合并和传递</h3><p>当我们在设置两个上下排列的 p 标签的上下外边距时，会发生外边距合并（重叠）。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css"><span class="hljs-selector-class">.p</span>&#123;</span><br><span class="language-css">    <span class="hljs-attribute">margin-bottom</span>:<span class="hljs-number">10px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">margin-top</span>:<span class="hljs-number">15px</span>;</span><br><span class="language-css">&#125;</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>段落1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>段落2<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>当这样两个 p 标签上下排列时，他们的间距并不是：<code>15+10=25px</code></p>
+<p>会发生外边距合并，他们中间将只有 <code>15px</code>（较大者）的距离。</p>
+<p>同时，他们中的空标签，会被忽略，不会影响两个有内容的标签。</p>
+<h3 id="2-负值的-margin"><a href="#2-负值的-margin" class="headerlink" title="2. 负值的 margin"></a>2. 负值的 margin</h3><p>我们在操作中有时会给 margin 加一个负值，目的是让盒子朝我们期望的方向移动。</p>
+<p>当为盒子添加 <code>margin-top/left：负数</code> 的时候，这个盒子会朝上或左移动。</p>
+<p>但我们给盒子添加 <code>margin-bottom/right：负数</code> 时，这个盒子之后的元素会向着这个盒子的位置移动。（自身宽高缩小）</p>
+<h2 id="float"><a href="#float" class="headerlink" title="float"></a>float</h2><p>float可以说是CSS的必备招式</p>
+<p>float会为元素设置浮动，浮动的元素自动变为行内块元素，且会“一个挨一个”的排列在一行上。</p>
+<p>这种排练元素的手法在flex出现之前非常常见，但同时也会伴随诸多问题。</p>
+<p>其中最常问的就是<code>清除浮动</code>,那就涉及到BFC的应用</p>
+<h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p>_嵌套元素的外边距塌陷_：</p>
+<p>我们在为子元素加一个向上的 margin 时，期待的效果是子元素可以与父元素隔开，而事实却不会这样。</p>
+<p>这个margin会加到父元素上，父元素依此移动，但父子元素还是紧贴在一起。</p>
+<p>为了解决这样的现象，我们有几种办法： </p>
+<ol>
+<li>加一个透明边框。 </li>
+<li>使用父元素 padding 的方式来隔开父子。 </li>
+<li>父元素 overflow:hidden。</li>
+</ol>
+<p>第三种解决方案就是利用了BFC</p>
+<p>BFC 是块级格式化上下文。可以为内容添加独立的渲染区域。</p>
+<p>BFC 的常见应用有： </p>
+<ol>
+<li>清除浮动。 </li>
+<li>独立渲染。 </li>
+<li>解决外边距塌陷。</li>
+</ol>
+<p>形成 BFC 的几种条件：</p>
+<ul>
+<li>浮动元素———float 不是 none </li>
+<li>定位元素———position 是 absolute 或 fixed </li>
+<li>块级元素———overflow 值不为 visible、clip 的块元素</li>
+<li>行内快元素、flex 元素</li>
+</ul>
+<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><p>这是一道常见的手写题：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.clearfix</span> <span class="hljs-selector-pseudo">:after</span>&#123;<br>    <span class="hljs-attribute">content</span>:<span class="hljs-string">&#x27;&#x27;</span>;<br>    <span class="hljs-attribute">height</span>:<span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">overflow</span>:hidden;<br>    <span class="hljs-attribute">clear</span>:both;<br>    <span class="hljs-attribute">display</span>:block;<br>&#125;<br><span class="hljs-selector-class">.clearfix</span>&#123;<br>    *zoom:<span class="hljs-number">1</span>;        //浏览器兼容性<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="水平居中及垂直居中方式"><a href="#水平居中及垂直居中方式" class="headerlink" title="水平居中及垂直居中方式"></a>水平居中及垂直居中方式</h2><p>简单来说，分几种常用的手法：</p>
+<ol>
+<li>最最基础的方式是的使用<code>margin:0 auto</code>来使元素水平居中。</li>
+<li>使父元素中的子元素垂直居中的方式是：父元素<code>line-height</code>与自身高度相同。</li>
+<li>接下来就是使用<code>定位+位移</code>的方法:<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-number">1</span>.定位+<span class="hljs-attribute">margin</span><br><span class="hljs-attribute">position</span>:absolute;<br><span class="hljs-attribute">left</span>:<span class="hljs-number">50%</span>;<br><span class="hljs-attribute">top</span>:<span class="hljs-number">50%</span>;<br><span class="hljs-attribute">margin</span>:-<span class="hljs-number">1</span>/<span class="hljs-number">2</span>height <span class="hljs-number">0</span> <span class="hljs-number">0</span> -<span class="hljs-number">1</span>/<span class="hljs-number">2</span>width;<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-number">2</span>.定位+tarnslate<br><span class="hljs-attribute">position</span>:absolute;<br><span class="hljs-attribute">left</span>:<span class="hljs-number">50%</span>;<br><span class="hljs-attribute">top</span>:<span class="hljs-number">50%</span>;<br><span class="hljs-attribute">transform</span>:<span class="hljs-built_in">translate</span>(-<span class="hljs-number">50%</span>,-<span class="hljs-number">50%</span>)<br></code></pre></td></tr></table></figure></li>
+<li>用flex来实现居中：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">display</span>:flex;<br><span class="hljs-attribute">justify-content</span>:center;<br><span class="hljs-attribute">align-items</span>:center;<br></code></pre></td></tr></table></figure>
+flex布局在工作中的使用频率极高也极其方便，需要重点学习！</li>
+</ol>
+<h2 id="flex-弹性布局"><a href="#flex-弹性布局" class="headerlink" title="flex 弹性布局"></a>flex 弹性布局</h2><p>flex 弹性布局提供了一种不同于传统 float 的布局方式，通过主轴和侧轴实现元素的排列。</p>
+<ul>
+<li>我们先来看父元素的属性(只列举一些常见的）：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">display</span>:flex;   //定义父元素为<span class="hljs-attribute">flex</span>盒子<br><span class="hljs-attribute">flex-direction</span>:row/column;     //定义<span class="hljs-attribute">flex</span>盒子中的主轴方向<br><span class="hljs-attribute">flex</span>-warp:warp/nowarp;         //定义<span class="hljs-attribute">flex</span>盒子的主轴元素是否自动换行<br><span class="hljs-attribute">justify-content</span>:center/space-around/space-between;  //定义元素在主轴上的排列方式<br><span class="hljs-attribute">align-items</span>:center;     //定义元素在副轴上的排列方式<br></code></pre></td></tr></table></figure></li>
+<li>对于子元素来说有一个必须知道的知识点：<code>flex:1</code>代表什么？</li>
+</ul>
+<p>简单来说，<code>flex:1</code>是一个语法糖，浏览器会解析为对应的属性。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">flex-grow:<span class="hljs-number">1</span>;    <span class="hljs-regexp">//</span>会填充主轴的剩余空间<br>flex-shrink:<span class="hljs-number">1</span>;  <span class="hljs-regexp">//</span>会在主轴空间元素不足时，被压缩<br>flex-basis:<span class="hljs-number">0</span>%;  <span class="hljs-regexp">//</span>元素在扩展或收缩时，基于的自身原本宽度<br></code></pre></td></tr></table></figure>
+<p>那我们就知道了，这三个属性配合使用，就可以使所有的子元素都保持同样的大小。</p>
+<p>在开发中通常需要擅用这三个属性，来控制flex中子元素的大小。</p>
+<p>通过这些特性，实现了flex“弹性”盒子，让布局更加方便。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/" class="category-chain-item">知识梳理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

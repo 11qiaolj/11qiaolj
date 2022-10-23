@@ -9,9 +9,9 @@ html是各位前端开发者的“第一课”，属于前端开发的基石。
 有关html的内容很多，但随着技术的不断进步，在实际工作中需要直接对html标签进行操作的情况很少，因此在面试中的考量通常是以基础的为主。
 
 ## HTML 语义化
-什么是 html 语义化？这个问题算是 html 在面试中出现频率较高的一个问题。
-按我的理解来说，就是给原来的 div 起名字，这是 HTML5 新推出的几种标签。 以前都是`<div class="header">`现在直接就叫`<header>`,这样做得好处就是：
+*什么是 html 语义化？* 这个问题算是 html 在面试中出现频率较高的一个问题。
 
+按我的理解来说，就是给原来的 `div` 起名字，这是 HTML5 新推出的几种标签。 以前都是`<div class="header">`现在直接就叫`<header>`,这样做得好处就是：
 1. 可以更方便开发者理解里面的内容的意义——增加代码可读性。
 2. 有助于搜索引擎的脚本对内容收集——SEO 搜索引擎优化。
 
@@ -30,7 +30,7 @@ html是各位前端开发者的“第一课”，属于前端开发的基石。
 
 答案是： html 的元素中存在着一种特殊的元素——置换元素。
 
-w3c 官方解释：“An element that is outside the scope of the CSS formatter, such as an image,embedded document, or applet”
+>w3c 官方解释：“An element that is outside the scope of the CSS formatter, such as an image,embedded document, or applet”
 
 简单一句话：置换元素可以通过标签上的`hright`和`width`属性来指定元素的宽高。
 
@@ -40,7 +40,7 @@ w3c 官方解释：“An element that is outside the scope of the CSS formatter,
 - alt：会在图片不显示时出现提示文字。
 - title：会在鼠标经过图片时显示该图片的标题。
 
-**小tip：** 在img的css属性中，可以使用object-fit属性来指定图片在容器中显示的模式。
+>**小tip：** 在img的css属性中，可以使用object-fit属性来指定图片在容器中显示的模式。
 ### script标签：
 简单来说，`<script>`的主要用途就是在页面中插入js代码。
 
@@ -58,9 +58,13 @@ w3c 官方解释：“An element that is outside the scope of the CSS formatter,
 - defer：是延迟的意思，因此`defer`的作用就是使`<script>`中的js会立即下载，但是放到最后来执行。同时其中的js代码会按照它们出现的`先后顺序执行`。
 - async：是异步的意思，`async`会告诉浏览器立即下载文件。与defer不同的是，`标记为async的脚本下载完会立刻执行`，并且不保证按照它们的先后顺序执行，而是谁先下载完谁就先执行。
 
+#### Script 标签的其他作用
+1. 用作渲染模版
+2. 存储用于初始化的数据
 
 ### input标签：
 以往的input标签需要依赖form标签来提交表单数据。但现在可以通过受控组件的方式提取其中的输入内容，然后发送ajax请求完成表单的提交。
+
 input标签有几种不同的type：
 ```
 button       没有默认行为的按钮，上面显示 value 属性的值，默认为空。
@@ -86,7 +90,7 @@ url          定义用于输入 URL 的字段。
 
 
 
-### meta标签：（仅作了解）
+### meta标签：
 这是一个比较有趣现象，我们往往可以熟练使用html的各种标签来构建我们的网页，但当我们观察head中的标签时，会发现很多不懂的内容。
 
 解释twitter官网HTML的前10行：
@@ -96,7 +100,7 @@ url          定义用于输入 URL 的字段。
 
 第一行：DOCTYPE标签告诉浏览器这是一个 HTML 页面
 
-第二行：dir 是文档渲染方向，规定语言的阅读习惯是 left to right 的，lang 就语言。
+第二行：dir 是文档渲染方向，规定语言的阅读习惯是 left to right 的，lang 就是语言。
 
 第三行：charset文档编码，使用utf-8格式进行编码。
 
@@ -124,7 +128,6 @@ url          定义用于输入 URL 的字段。
 - keywords：关键字。
 - robots：搜索引擎抓取的规则。
 - renderer：双核浏览器的默认渲染方式
-meta标签还有一个http-equiv属性：
 
 当然笔者对这部分内容也没有完全了解，meta虽然在开发过程中接触到的不多，仅做了解就好。
 

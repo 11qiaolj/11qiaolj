@@ -57,7 +57,7 @@ text-overflow:ellipsis;
 ## css 三角
 1. 当我们把 box 的宽高置为 0，再设置边框时就会形成四个三角形，为他们设置不同颜色可以看到四个三角形。
 
-![css三角](https://11qiaolj.github.io/2021/06/06/图片/三角.png)
+![css三角](https://qiaolj-tuchuang.oss-cn-beijing.aliyuncs.com/img/CSS三角.jpg)
 
 设置其中一个有颜色，另外三个透明就可以得到 css 三角
 
